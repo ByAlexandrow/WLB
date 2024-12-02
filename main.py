@@ -1,16 +1,29 @@
 from kivymd.app import MDApp
-from kivy.uix.screenmanager import ScreenManager
-
+from kivy.uix.screenmanager import Screen, NoTransition
+from kivymd.uix.screenmanager import MDScreenManager
 from app.ui.main_screen import MainScreen
+from app.ui.settings_screen import SettingsScreen
+from kivy.core.text import LabelBase
 
 
-class WLB(MDApp):
+LabelBase.register(name='Mulish-SemiBold', fn_regular='fonts/Mulish-SemiBold.ttf')
+
+class BED(MDApp):
     def build(self):
-        self.screen_manager = ScreenManager()
+        screen_manager = MDScreenManager()
+        screen_manager.transition = NoTransition()
 
-        self.screen_manager.add_widget(MainScreen(name='main'))
+        # Добавляем экраны в MDScreenManager
+        screen_manager.add_widget(MainScreen(name='main'))
+        screen_manager.add_widget(Screen(name='businesses'))
+        screen_manager.add_widget(Screen(name='habits'))
+        screen_manager.add_widget(Screen(name='rest'))
+        screen_manager.add_widget(Screen(name='achievements'))
+        screen_manager.add_widget(Screen(name='security'))
+        screen_manager.add_widget(SettingsScreen(name='settings'))
 
-        return self.screen_manager
+        return screen_manager
+
 
 if __name__ == '__main__':
-    WLB().run()
+    BED().run()
