@@ -5,5 +5,5 @@ from app.ui.base.topbar import TopBarBase
 
 class SettingsScreen(DrawerBase, DialogBase, TopBarBase):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(title='BED - Settings', **kwargs)
         self.name = 'settings'

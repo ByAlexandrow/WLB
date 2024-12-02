@@ -7,27 +7,17 @@ from app.ui.base.topbar import TopBarBase
 
 class MainScreen(DrawerBase, DialogBase, TopBarBase):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(title='BED', **kwargs)
         self.name = 'main'
-
-        # Создаем MDLabel с пользовательским шрифтом и цветом
-        self.label = MDLabel(
-            text="BED",
-            halign="center",
-            pos_hint={"center_y": .8},
-            font_size='35sp',
-            color=(43/255, 9/255, 181/255),
-            font_name='Mulish-SemiBold'
-        )
-        self.add_widget(self.label)
 
         # Создаем MDLabel с дефолтным шрифтом и цветом
         self.label = MDLabel(
-            text="better every day",
+            text="Better Every Day",
             halign="center",
-            pos_hint={"center_y": .75},
-            font_size='20sp',
-            color=(43/255, 9/255, 181/255)  # Устанавливаем цвет
+            pos_hint={"center_y": .8},
+            font_size='35sp',
+            theme_text_color="Custom",
+            text_color=(43/255, 9/255, 181/255)
         )
         self.add_widget(self.label)
 
@@ -36,8 +26,9 @@ class MainScreen(DrawerBase, DialogBase, TopBarBase):
             text="1. Customize the app\n\n2. Set a password\n\n3. Use the app\n\n4. Be Better Every Day",
             halign="center",
             pos_hint={"center_y": .45},
-            font_size='16sp',
-            color=(43/255, 9/255, 181/255)  # Устанавливаем цвет
+            theme_text_color="Custom",
+            text_color=(43/255, 9/255, 181/255),
+            font_size='30sp',
         )
         self.add_widget(self.label)
 
@@ -47,6 +38,7 @@ class MainScreen(DrawerBase, DialogBase, TopBarBase):
             halign="center",
             pos_hint={"center_y": .05},
             font_size='14sp',
-            color=(43/255, 9/255, 181/255)  # Устанавливаем цвет
+            theme_text_color="Custom",
+            text_color=(43/255, 9/255, 181/255)
         )
         self.add_widget(self.label)

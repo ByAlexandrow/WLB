@@ -59,10 +59,14 @@ class DrawerBase(MDScreen):
         self.nav_drawer_menu.add_widget(MDNavigationDrawerItem(
             icon="cog",
             text="Settings",
-            on_release=lambda x: self.switch_screen('settings')
+            on_release=lambda x: self.switch_screen('settings', no_transition=True)
         ))
 
-
-    def switch_screen(self, screen_name):
+    
+    def switch_screen(self, screen_name, no_transition=False):
+        if no_transition:
+            self.manager.transition.duration = 0
         self.manager.current = screen_name
         self.nav_drawer.set_state("close")
+        if no_transition:
+            self.manager.transition.duration = 0.2

@@ -15,7 +15,7 @@ class DialogBase(MDScreen):
                 MDFlatButton(
                     text="OK",
                     theme_text_color="Custom",
-                    text_color=self.theme_cls.primary_color,
+                    text_color=(43/255, 9/255, 181/255),
                     on_release=self.close_dialog
                 ),
             ],
